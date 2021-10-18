@@ -25,7 +25,7 @@ The specific application for this kind business is { we don't have yet }
 
 The following diagram shows how our website works:
 
-Diagrama:
+Diagrama:<br>
 ![Diagrama do projeto](Diagrama.jpg)
 
 #### Main Page

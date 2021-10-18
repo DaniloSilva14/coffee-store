@@ -32,17 +32,17 @@ Diagrama:<br>
 The main page is responsive.
 
 #### User Page
-In the user page, which can be accessed through the green button on the right side of the navbar, the user can view their information, log out from their acconut or delete their account.
+In the user page, the user can view their information, log out from their acconut or delete their account.
 
 #### Login Page
-In this page the user can login the website's system using a registerd email and password. After connected the user will be redirected to the main page, if logged with a client account, or to admin page if logged with an admin account.<br>
+In this page the user can login the website's system. After connected the user will be redirected to the main page, if logged with a client account, or to admin page if logged with an admin account.<br>
 If the user doesn't have a registered account, he can access the register page from this page.<br>
 
 ##### Login as Admin (mocked)
 Login: admin <br>
 Password: admin
 
-##### Login as regular user
+##### Login as regular user (mocked)
 Login: user <br>
 Password: user <br>
 
@@ -51,7 +51,7 @@ This page shows all the products available in our online shop. If an administrat
 This page also presents our group's functionality { we don't have yet }.
 
 #### Cart and Payments Page
-This page displays all the products selected by the user. It's possible to change the desired quantity of each product, as well as remove them. The sidebar display the current cost of all products in the cart and the shipment options. After the user is done with shopping, they can go to the payment page, where they'll fill in the forms with shipment and payment information. After the payment is concluded, the user is redirected to the main page. 
+This page displays all the products selected by the user. It's possible to change the desired quantity of each product, as well as remove them.  After the user is done with shopping, they can go to the payment page, where they'll fill in the forms with shipment and payment information. After the payment is concluded, the user is redirected to the main page. 
 
 #### Admin's Page (we didn't make the prototype)
 In this page the admin will can manage the available products or the users that are registered on the plataform. He can turn a normal user (client) into a new administrator. He could also add new products or edit the already existing ones.

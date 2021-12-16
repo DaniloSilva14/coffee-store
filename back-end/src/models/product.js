@@ -3,6 +3,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/* Product = {
+    id,
+    title,
+    slug,
+    description,
+    price,
+    qtd,
+    image
+  } 
+*/
+
 const schema = new Schema({
   // _id
   title: {
@@ -12,7 +23,7 @@ const schema = new Schema({
   },
   slug: {
     type: String,
-    required: [true, 'O slug é obrigatório'],
+    required: true,
     trim: true,
     index: true,
     unique: true
@@ -25,22 +36,14 @@ const schema = new Schema({
     type: Number,
     required: true
   },
-  active: {
-    type: Boolean,
-    required: true,
-    default: true
+  qtd: {
+    type: Number,
+    required: true
   },
-  tags: [{
+  image: {
     type: String,
     required: true
-  }]
+  }
 });
-
-// ,
-//   image: {
-//     type: String,
-//     required: true,
-//     trim: true
-//   }
 
 module.exports = mongoose.model('Product', schema);

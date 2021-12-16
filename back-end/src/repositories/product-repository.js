@@ -2,43 +2,12 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('Product');
 
-// exports.get = () => {
-//   return Product
-//     .find({ 
-//       active: true 
-//     }, 'title price slug');
-// }
-
 exports.get = async() => {
-  const res = await Product
-    .find({ 
-      active: true 
-    }, 'title price slug');
-  return res;
-}
-
-exports.getBySlug = async(slug) => {
-  const res = await Product
-    .findOne({ 
-      slug: slug,
-      active: true 
-    }, 'title description price slug tags')
-  return res;
+  return await Product.find();
 }
 
 exports.getById = async(id) => {
-  const res = await  Product
-    .findById(id)
-  return res;
-}
-
-exports.getByTag = async(tag) => {
-  const res = await Product
-    .find({ 
-      tags: tag,
-      active: true 
-    }, 'title description price slug tags');
-  return res;
+  return await  Product.findById(id)
 }
 
 exports.create = async(data) => {
@@ -53,11 +22,28 @@ exports.update = async(id, data) => {
         title: data.title,
         slug: data.slug,
         description: data.description,
-        price: data.price
+        price: data.price,
+        qtd: data.qtd,
+        image: data.image
       }
     })
 }
 
 exports.delete = async(id) => {
   await Product.findByIdAndDelete(id);
+}
+
+exports.sellProduct = async(id, data) => {
+  let product = await this.getById(id)
+
+  if(!product) return;
+
+  let newQtd = product.qtd - data.qtd;
+
+  await  Product
+    .findByIdAndUpdate(id, {
+      $set : {
+        qtd: newQtd
+      }
+    })
 }

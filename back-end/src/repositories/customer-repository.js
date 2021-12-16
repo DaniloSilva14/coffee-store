@@ -21,3 +21,29 @@ exports.getById = async(id) => {
     .findById(id);
   return res;
 }
+
+exports.changePermission = async(id) => {
+  let customer = await this.getById(id);
+  if(!customer)
+    return ;
+
+  let role;
+  if(customer.roles == 'admin')
+    role = 'user';
+  else
+    role = 'admin';
+  await  Customer
+    .findByIdAndUpdate(id, {
+      $set : {
+        roles: role
+      }
+    })
+}
+
+exports.delete = async(id) => {
+  await Customer.findByIdAndDelete(id);
+}
+
+exports.get = async() => {
+  return await Customer.find({}, 'email roles');
+}

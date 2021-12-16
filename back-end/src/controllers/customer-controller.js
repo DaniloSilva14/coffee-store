@@ -24,12 +24,6 @@ exports.post = async(req, res, next) => {
       roles: ['user']
     });
 
-    // emailService.send(
-    //   req.body.email,
-    //   'Bem vindo a Node Store',
-    //   global.EMAIL_TMPL.replace('{0}', req.body.name)
-    // );
-
     res.status(201).send({ 
       message: 'Cliente cadastrado com sucesso'
     });
@@ -112,11 +106,40 @@ exports.refreshToken = async(req, res, next) => {
   }
 };
 
-// TODO
-//
-// ChangePermission 
-// -> altera de user -> admin
-// -> altera de admin -> user
-//
-// delete 
-// -> deleta customer
+exports.changePermission = async(req, res, next) => {
+  try {
+    await repository.changePermission(req.body.id);
+
+    res.status(201).send({ 
+      message: 'Role Cliente alterado com sucesso'
+    });
+  } catch (e) {
+    res.status(500).send({
+      message: 'Falha ao processar sua requisição'
+    });
+  }
+};
+
+exports.delete = async(req, res, next) => {
+  try {
+    await repository.delete(req.body.id);
+    res.status(200).send({ 
+      message: 'Customer removido com sucesso'
+    });
+  } catch (e) {
+    res.status(500).send({
+      message: 'Falha ao processar sua requisição'
+    });
+  }
+};
+
+exports.get = async(req, res, next) => {
+  try {
+    var data = await repository.get();
+    res.status(200).send(data);
+  } catch (e) {
+    res.status(500).send({
+      message: 'Falha ao processar sua requisição'
+    });
+  }
+};

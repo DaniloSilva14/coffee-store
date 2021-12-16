@@ -1,0 +1,7 @@
+Você precis do NODE
+
+Primeiro
+  npm install
+
+Segundo 
+  npm run dev

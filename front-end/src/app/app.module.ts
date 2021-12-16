@@ -20,7 +20,8 @@ import { ManageAdminsComponent } from './admin/manage-admins/manage-admins.compo
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
 import { ManageSalesComponent } from './admin/manage-sales/manage-sales.component';
-import {MatTableModule} from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatTableModule} from '@angular/material/table'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

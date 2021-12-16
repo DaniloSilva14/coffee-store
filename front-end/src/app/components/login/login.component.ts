@@ -33,7 +33,11 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password')?.value;
 
     this.authService.login(email, password).subscribe(() => {
-        this.router.navigate(['/']);
+        if(email == 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/']);
+        }
       },(err) => {
         alert('Login ou senha inválidos')
       }

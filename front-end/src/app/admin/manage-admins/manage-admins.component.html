@@ -3,12 +3,22 @@
   <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
     <h1 class="pt-4">Gerenciar Admins</h1>
     <div class="contactText">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci cupiditate tempore suscipit quasi ex,
-        eligendi
-        esse assumenda quod totam eaque nulla hic blanditiis natus officiis vel beatae? Est, maiores illo.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci cupiditate tempore suscipit quasi ex,
-        eligendi
-        esse assumenda quod totam eaque nulla hic blanditiis natus officiis vel beatae? Est, maiores illo.</p>
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let item of columHead">{{this.item}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataSource">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>
+              <mat-slide-toggle class="teste" (change)="changeRole(item)" [checked]="item.roles == 'admin'">{{item.roles}}</mat-slide-toggle>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

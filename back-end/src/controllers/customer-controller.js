@@ -12,8 +12,7 @@ exports.post = async(req, res, next) => {
       address: req.body.address,
       phone: req.body.phone,
       email: req.body.email,
-      password: md5(req.body.password + global.SALT_KEY),
-      roles: ['user']
+      password: md5(req.body.password + global.SALT_KEY)
     });
 
     res.status(201).send({ 

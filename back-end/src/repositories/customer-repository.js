@@ -28,10 +28,10 @@ exports.changePermission = async(id) => {
     return ;
 
   let role;
-  if(customer.roles == 'admin')
-    role = 'user';
+  if(customer.roles == "admin")
+    role = "user";
   else
-    role = 'admin';
+    role = "admin";
   await  Customer
     .findByIdAndUpdate(id, {
       $set : {
@@ -45,5 +45,5 @@ exports.delete = async(id) => {
 }
 
 exports.get = async() => {
-  return await Customer.find({}, 'id name address phone email');
+  return await Customer.find({}, 'id name address phone email roles');
 }

@@ -1,0 +1,23 @@
+/* Danilo */
+.container {
+  background-color: #f6e1c5;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.homeButton {
+  text-decoration: none;
+  background: #FFFFFF;
+  color: #000000;
+  box-shadow: 0px 5.16636px 5.16636px rgba(0, 0, 0, 0.35);
+  border-radius: 32px;
+  font-size: 30px;
+  transition-duration: 0.5s;
+}
+
+.homeButton:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+  color: #000000;
+  background: gray;
+}

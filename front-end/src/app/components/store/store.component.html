@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="vitrine">
+    <div *ngFor="let prod of produtos" class="produto">
+      <div class="produtoImagem">
+        <img src={{prod.image}} class="imgProd">
+      </div>
+      <div class="produtoTitulo">
+        <p>{{prod.title}}</p>
+      </div>
+      <div class="produtoPreço">
+        <p>Preço: R$ {{prod.price}}</p>
+      </div>
+      <div class="produtoQuantidade">
+        <p>Qtd disponivel: {{prod.qtd}}</p>
+      </div>
+      <div class="produtoComprar">
+        <button class="btn botaoComprar" (click)="compra(prod.id)">Comprar</button>
+      </div>     
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

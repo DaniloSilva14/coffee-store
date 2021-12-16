@@ -17,6 +17,5 @@ export class AdminService {
 
   changePermission(id: number){
     return this.http.post<User[]>('http://localhost:3000/customers/change-permission', {'id': id})
-      .subscribe(data => console.log(data))
   }
 }

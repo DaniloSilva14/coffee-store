@@ -23,9 +23,6 @@ export class DialogDeleteProductComponent implements OnInit {
 
   onYesClick(): void {
     this.productService.deleteProdutos(this.data)
-      .subscribe(res => {
-        console.log(res);        
-        this.dialogRef.close();
-    })    
+      .subscribe(res =>  this.dialogRef.close() )    
   }
 }

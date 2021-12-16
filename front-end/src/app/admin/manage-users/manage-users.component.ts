@@ -16,9 +16,6 @@ export class ManageUsersComponent implements OnInit {
     private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.adminService.getUsers().subscribe(data => {
-      this.dataSource = data
-      console.log(this.dataSource);      
-    });
+    this.adminService.getUsers().subscribe(data => this.dataSource = data );
   }
 }

@@ -17,10 +17,6 @@ export class ManageSalesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productService.getProdutos().subscribe(data => {
-      this.dataSource = data
-      console.log(this.dataSource);      
-    });
+    this.productService.getProdutos().subscribe(data => this.dataSource = data );
   }
-
 }

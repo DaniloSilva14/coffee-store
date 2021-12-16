@@ -5,6 +5,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 import { MatDialog } from "@angular/material/dialog";
 import { DialogDeleteProductComponent } from '../dialog-delete-product/dialog-delete-product.component';
 import { DialogAlterProductComponent } from '../dialog-alter-product/dialog-alter-product.component';
+import { DialogCreateProductComponent } from '../dialog-create-product/dialog-create-product.component';
 
 @Component({
   selector: 'app-manage-products',
@@ -22,16 +23,10 @@ export class ManageProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getProdutos().subscribe(data => {
-      this.dataSource = data
-      console.log(this.dataSource);
-    });
+    this.productService.getProdutos().subscribe(data => this.dataSource = data );
   }
 
   toEdit(item: Product): void {
-    console.log('Edit');
-    console.log(item);
-
     const dialogRef = this.dialog.open(DialogAlterProductComponent, {
       width: '400px',
       data: item,
@@ -44,12 +39,20 @@ export class ManageProductsComponent implements OnInit {
   }
 
   toDelete(id: Number): void {
-    console.log('Delete');
-    console.log(id);
-
     const dialogRef = this.dialog.open(DialogDeleteProductComponent, {
       width: '250px',
       data: id,
+    });
+
+    dialogRef.afterClosed().subscribe(()=> 
+      this.productService.getProdutos()
+        .subscribe(data => this.dataSource = data)
+    );    
+  }
+
+  toCreate(): void {
+    const dialogRef = this.dialog.open(DialogCreateProductComponent, {
+      width: '400px'
     });
 
     dialogRef.afterClosed().subscribe(()=> 

@@ -47,4 +47,18 @@ export class ProductsService {
       }
     })
   }
+
+  criarProdutos(produto: Product) {
+    return this.http.request('post', 'http://localhost:3000/products', {
+      body: {
+        "title": produto.title,
+        "slug": produto.slug,
+        "description": produto.description,
+        "price": produto.price,
+        "qtd": produto.qtd,
+        "sold": produto.sold,
+        "image": produto.image
+      }
+    })
+  }
 }

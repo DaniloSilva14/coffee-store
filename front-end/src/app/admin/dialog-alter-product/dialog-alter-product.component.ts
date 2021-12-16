@@ -39,9 +39,6 @@ export class DialogAlterProductComponent implements OnInit {
 
   onYesClick(): void {
     this.productService.alterarProdutos(this.productForm.value as Product)
-      .subscribe(res => {
-        console.log(res);        
-        this.dialogRef.close();
-    })    
+      .subscribe(res => this.dialogRef.close())    
   }
 }

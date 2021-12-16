@@ -26,7 +26,11 @@ export class ProductsService {
   //   return this.produtos;
   // }
 
-  getProdutos(){
+  getProdutos() {
     return this.http.get<Product[]>('http://localhost:3000/products')
+  }
+
+  deleteProdutos(id: Number){
+    return this.http.request('delete', 'http://localhost:3000/products', { body: {"id": id} })
   }
 }

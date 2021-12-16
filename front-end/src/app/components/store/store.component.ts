@@ -23,7 +23,7 @@ export class StoreComponent implements OnInit {
   }
 
   compra(id: any) {
-    let prod = this.produtos.find(p => p.id == id)
+    let prod = this.produtos.find(p => p._id == id)
     console.log(prod);
   }
 }

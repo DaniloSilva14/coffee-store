@@ -1,9 +1,10 @@
 export interface Product {
-  id: number,
-  title: string,
-  slug: string,
-  description: string,
-  price: string,
-  qtd: number,
-  image: string
+  _id: Number,
+  title: String,
+  slug: String,
+  description: String,
+  price: String,
+  qtd: Number,
+  sold: Number
+  image: String
 }

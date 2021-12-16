@@ -22,6 +22,11 @@ import { ManageProductsComponent } from './admin/manage-products/manage-products
 import { ManageSalesComponent } from './admin/manage-sales/manage-sales.component';
 import { MatTableModule } from '@angular/material/table'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { DialogDeleteProductComponent } from './admin/dialog-delete-product/dialog-delete-product.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ManageAdminsComponent,
     ManageUsersComponent,
     ManageProductsComponent,
-    ManageSalesComponent
+    ManageSalesComponent,
+    DialogDeleteProductComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,3 +5,18 @@
 html, body { height: 100%;}
 body { margin: 0; background-image: url('./assets/bg.jpg') !important;  background-repeat: repeat;}
 a { text-decoration: none; }
+
+.mat-dialog-title {
+  text-align: center;
+}
+
+.mat-dialog-actions {
+  padding: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 52px;
+  align-items: center;
+  box-sizing: content-box;
+  margin-bottom: -24px;
+  justify-content: space-around;
+}

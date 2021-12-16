@@ -10,6 +10,7 @@ router.get('/:id', controller.getById);
 router.post('/', authService.isAdmin, controller.post);
 router.put('/:id', authService.isAdmin, controller.put);
 router.put('/sell/:id', authService.authorize, controller.sellProduct);
-router.delete('/', authService.isAdmin, controller.delete);
+// router.delete('/', authService.isAdmin, controller.delete);
+router.delete('/', controller.delete);
 
 module.exports = router;

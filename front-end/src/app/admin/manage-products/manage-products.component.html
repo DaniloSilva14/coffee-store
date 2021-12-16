@@ -3,39 +3,25 @@
   <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
     <h1 class="pt-4">Gerenciar Produtos</h1>
     <div class="contactText">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef> Nome </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.title}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef> Descrição </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.description}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef> Preço </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.price}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="qtd">
-          <th mat-header-cell *matHeaderCellDef> Quantidade </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.qtd}} </td>
-        </ng-container>
-
-        <!-- <ng-container matColumnDef="sold">
-          <th mat-header-cell *matHeaderCellDef> Vendidos </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.sold}} </td>
-        </ng-container> -->
-
-        <ng-container matColumnDef="image">
-          <th mat-header-cell *matHeaderCellDef> Imagem </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.image}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let item of columHead">{{this.item}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataSource">
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.qtd}}</td>
+            <td>
+              <mat-icon class="hand" (click)="toEdit(item)">edit</mat-icon>
+              <!-- <mat-icon class="hand" (click)="toDelete(item)">delete</mat-icon> -->
+              <mat-icon class="hand" (click)="toDelete(item._id)">delete</mat-icon>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

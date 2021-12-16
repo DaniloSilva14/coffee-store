@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { MatDialog } from "@angular/material/dialog";
+import { DialogDeleteProductComponent } from '../dialog-delete-product/dialog-delete-product.component';
 
 @Component({
   selector: 'app-manage-products',
@@ -8,19 +11,40 @@ import { ProductsService } from 'src/app/services/products/products.service';
   styleUrls: ['./manage-products.component.scss']
 })
 export class ManageProductsComponent implements OnInit {
-
-  displayedColumns: string[] = ['title', 'description', 'price', 'qtd', 'image'];
+  columHead: string[] = ['Nome', 'Descrição', 'Preço', 'Estoque', 'Opções'];
   dataSource: Product[] = [];
 
   constructor(
-    private productService: ProductsService
-  ) { }
+    public dialog: MatDialog, 
+    private productService: ProductsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.productService.getProdutos().subscribe(data => {
       this.dataSource = data
-      console.log(this.dataSource);      
+      console.log(this.dataSource);
     });
   }
 
+  toEdit(item: Product) {
+    console.log('Edit');
+    console.log(item);
+    this.router.navigate(['admin/manage-sales/' + item.slug]);
+  }
+
+  toDelete(id: Number): void {
+    console.log('Delete');
+    console.log(id);
+
+    const dialogRef = this.dialog.open(DialogDeleteProductComponent, {
+      width: '250px',
+      data: id,
+    });
+
+    dialogRef.afterClosed().subscribe(()=> 
+      this.productService.getProdutos()
+        .subscribe(data => this.dataSource = data)
+    );    
+  }
 }

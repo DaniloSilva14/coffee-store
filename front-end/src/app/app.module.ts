@@ -27,6 +27,8 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogDeleteProductComponent } from './admin/dialog-delete-product/dialog-delete-product.component';
+import { DialogAlterProductComponent } from './admin/dialog-alter-product/dialog-alter-product.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { DialogDeleteProductComponent } from './admin/dialog-delete-product/dial
     ManageUsersComponent,
     ManageProductsComponent,
     ManageSalesComponent,
-    DialogDeleteProductComponent
+    DialogDeleteProductComponent,
+    DialogAlterProductComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { DialogDeleteProductComponent } from './admin/dialog-delete-product/dial
     MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

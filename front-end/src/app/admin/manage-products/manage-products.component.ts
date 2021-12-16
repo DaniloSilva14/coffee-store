@@ -4,6 +4,7 @@ import { Product } from 'src/app/models/product/product';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { MatDialog } from "@angular/material/dialog";
 import { DialogDeleteProductComponent } from '../dialog-delete-product/dialog-delete-product.component';
+import { DialogAlterProductComponent } from '../dialog-alter-product/dialog-alter-product.component';
 
 @Component({
   selector: 'app-manage-products',
@@ -27,10 +28,19 @@ export class ManageProductsComponent implements OnInit {
     });
   }
 
-  toEdit(item: Product) {
+  toEdit(item: Product): void {
     console.log('Edit');
     console.log(item);
-    this.router.navigate(['admin/manage-sales/' + item.slug]);
+
+    const dialogRef = this.dialog.open(DialogAlterProductComponent, {
+      width: '400px',
+      data: item,
+    });
+
+    dialogRef.afterClosed().subscribe(()=> 
+      this.productService.getProdutos()
+        .subscribe(data => this.dataSource = data)
+    );    
   }
 
   toDelete(id: Number): void {

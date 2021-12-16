@@ -30,7 +30,21 @@ export class ProductsService {
     return this.http.get<Product[]>('http://localhost:3000/products')
   }
 
-  deleteProdutos(id: Number){
-    return this.http.request('delete', 'http://localhost:3000/products', { body: {"id": id} })
+  deleteProdutos(id: Number) {
+    return this.http.request('delete', 'http://localhost:3000/products', { body: { "id": id } })
+  }
+
+  alterarProdutos(produto: Product) {
+    return this.http.request('put', `http://localhost:3000/products/${produto._id}`, {
+      body: {
+        "title": produto.title,
+        "slug": produto.slug,
+        "description": produto.description,
+        "price": produto.price,
+        "qtd": produto.qtd,
+        "sold": produto.sold,
+        "image": produto.image
+      }
+    })
   }
 }

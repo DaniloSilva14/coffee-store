@@ -45,5 +45,5 @@ exports.delete = async(id) => {
 }
 
 exports.get = async() => {
-  return await Customer.find({}, 'email roles');
+  return await Customer.find({}, 'id name address phone email');
 }

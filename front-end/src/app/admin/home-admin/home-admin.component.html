@@ -1,0 +1,40 @@
+<app-header-admin></app-header-admin>
+
+<div class="container">
+  <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
+    <h1 class="pt-4 mb-0">Area do ADMIN</h1>
+    <small>O que deseja fazer?</small>
+
+    <div class="container">
+      <div class="listActions">
+        <div class="action">
+          <div class="actionImg"><img src="https://cdn0.iconfinder.com/data/icons/cosmetic-store/25/Register-512.png" class="imgAction"></div>
+          <div class="actionTitle"><p>Gerenciar Users</p></div>
+          <div class="actionEnter"><button class="btn btnAction" (click)="navigationToManageUsers()">Entrar</button></div>
+        </div>
+
+        <div class="action">
+          <div class="actionImg"><img src="https://cdn-icons-png.flaticon.com/512/2206/2206368.png" class="imgAction"></div>
+          <div class="actionTitle"><p>Gerenciar ADMINS</p></div>
+          <div class="actionEnter"><button class="btn btnAction" (click)="navigationToManageAdmins()">Entrar</button></div>
+        </div>
+
+        <div class="action">
+          <div class="actionImg"><img src="https://image.flaticon.com/icons/png/512/1170/1170577.png" class="imgAction"></div>
+          <div class="actionTitle"><p>Gerenciar Produtos</p></div>
+          <div class="actionEnter"><button class="btn btnAction" (click)="navigationToManageProducts()">Entrar</button></div>
+        </div>
+
+        <div class="action">
+          <div class="actionImg"><img src="https://cdn4.iconfinder.com/data/icons/symbol-blue-set-1/100/Untitled-2-87-512.png" class="imgAction"></div>
+          <div class="actionTitle"><p>Visualizar Vendas</p></div>
+          <div class="actionEnter"><button class="btn btnAction" (click)="navigationToManageSales()">Entrar</button></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

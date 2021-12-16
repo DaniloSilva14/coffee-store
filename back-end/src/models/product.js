@@ -10,6 +10,7 @@ const Schema = mongoose.Schema;
     description,
     price,
     qtd,
+    sold,
     image
   } 
 */
@@ -37,6 +38,10 @@ const schema = new Schema({
     required: true
   },
   qtd: {
+    type: Number,
+    required: true
+  },
+  sold: {
     type: Number,
     required: true
   },

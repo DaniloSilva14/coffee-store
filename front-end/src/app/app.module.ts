@@ -14,7 +14,13 @@ import { MatToolbarModule} from  '@angular/material/toolbar';
 import { StoreComponent } from './components/store/store.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
+import { HeaderAdminComponent } from './admin/header-admin/header-admin.component';
+import { ManageAdminsComponent } from './admin/manage-admins/manage-admins.component';
+import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
+import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
+import { ManageSalesComponent } from './admin/manage-sales/manage-sales.component';
+import {MatTableModule} from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -25,7 +31,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactComponent,
     AboutComponent,
     LoginComponent,
-    StoreComponent
+    StoreComponent,
+    HomeAdminComponent,
+    HeaderAdminComponent,
+    ManageAdminsComponent,
+    ManageUsersComponent,
+    ManageProductsComponent,
+    ManageSalesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

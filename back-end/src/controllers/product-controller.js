@@ -1,6 +1,6 @@
 'use strict'
 
-const ValidationContract = require('../validators/fluent-validator');
+// const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/product-repository');
 
 exports.get = async(req, res, next) => {
@@ -26,16 +26,6 @@ exports.getById = async(req, res, next) => {
 };
 
 exports.post = async(req, res, next) => {
-  let contract = new ValidationContract();
-  contract.hasMinLen(req.body.title, 3, 'O titulo deve conter pelo menos 3 caracteres');
-  contract.hasMinLen(req.body.slug, 3, 'O slug deve conter pelo menos 3 caracteres');
-  contract.hasMinLen(req.body.description, 3, 'O description deve conter pelo menos 3 caracteres');
-
-  if(!contract.isValid()){
-    res.status(400).send(contract.errors()).end();
-    return;
-  }
-
   try {
     await repository.create(req.body);
     res.status(201).send({ 

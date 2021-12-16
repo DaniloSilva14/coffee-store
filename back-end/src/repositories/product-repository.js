@@ -24,6 +24,7 @@ exports.update = async(id, data) => {
         description: data.description,
         price: data.price,
         qtd: data.qtd,
+        sold: data.sold,
         image: data.image
       }
     })
@@ -39,11 +40,13 @@ exports.sellProduct = async(id, data) => {
   if(!product) return;
 
   let newQtd = product.qtd - data.qtd;
+  let newSold = product.sold + data.qtd;
 
   await  Product
     .findByIdAndUpdate(id, {
       $set : {
-        qtd: newQtd
+        qtd: newQtd,
+        sold: newSold
       }
     })
 }

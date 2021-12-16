@@ -10,6 +10,7 @@ router.post('/authenticate', controller.authenticate);
 router.post('/refresh-token', authService.authorize, controller.refreshToken);
 router.post('/change-permission', authService.isAdmin, controller.changePermission);
 router.delete('/', authService.isAdmin, controller.delete);
-router.get('/', authService.isAdmin, controller.get);
+// router.get('/', authService.isAdmin, controller.get);
+router.get('/', controller.get);
 
 module.exports = router;

@@ -1,0 +1,25 @@
+.container {
+  background-color: #f6e1c5;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.contactText {
+  padding: 40px 30px;
+}
+
+th{
+  text-align: center !important;
+}
+
+.cortaLinha {
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  max-width: 20px !important;
+  padding: 2px ;
+}
+
+table {
+  width: 100%;
+}

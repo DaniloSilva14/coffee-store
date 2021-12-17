@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/app/models/manageAdmin/user';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { DialogAlterUserComponent } from '../dialog-alter-user/dialog-alter-user.component';
+import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 
 @Component({
   selector: 'app-manage-users',
@@ -29,23 +30,23 @@ export class ManageUsersComponent implements OnInit {
       data: item,
     });
 
-    dialogRef.afterClosed().subscribe(()=> 
+    dialogRef.afterClosed().subscribe(() => 
       this.adminService.getUsers()
         .subscribe(data => this.dataSource = data)
     );    
   }
 
-  // toDelete(id: Number): void {
-  //   const dialogRef = this.dialog.open(DialogDeleteProductComponent, {
-  //     width: '250px',
-  //     data: id,
-  //   });
+  toDelete(id: Number): void {
+    const dialogRef = this.dialog.open(DialogDeleteUserComponent, {
+      width: '250px',
+      data: id,
+    });
 
-  //   dialogRef.afterClosed().subscribe(()=> 
-  //     this.productService.getProdutos()
-  //       .subscribe(data => this.dataSource = data)
-  //   );    
-  // }
+    dialogRef.afterClosed().subscribe(() => 
+      this.adminService.getUsers()
+      .subscribe(data => this.dataSource = data)
+    );    
+  }
 
   // toCreate(): void {
   //   const dialogRef = this.dialog.open(DialogCreateProductComponent, {

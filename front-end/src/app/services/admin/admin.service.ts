@@ -30,4 +30,8 @@ export class AdminService {
       }
     })
   }
+
+  deleteUser(id: Number) {
+    return this.http.request('delete', 'http://localhost:3000/customers', { body: { "id": id } })
+  }
 }

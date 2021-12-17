@@ -20,7 +20,7 @@ export class LoggedGuard implements CanLoad {
 
 
     if (!this.tokenService.hasToken()) {
-      this.router.navigate(['']);
+      this.router.navigate(['finalize-compra']);
       return false;
     }
     return true;

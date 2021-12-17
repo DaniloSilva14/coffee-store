@@ -19,11 +19,17 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isAdmin();
     if(this.tokenService.hasToken()){
       this.logado = true;
       this.typeUser = this.tokenService.getUserRoles(); 
       this.nameUser = this.tokenService.getUserName(); 
     }      
+  }
+
+  isAdmin() {
+    if (this.tokenService.isAdmin())
+      this.route.navigate(['admin']);
   }
 
   logout() {

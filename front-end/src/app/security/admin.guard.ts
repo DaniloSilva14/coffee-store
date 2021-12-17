@@ -6,7 +6,7 @@ import { TokenService } from '../services/token/token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanLoad {
+export class AdminGuard implements CanLoad {
 
   constructor(
     private tokenService: TokenService,
@@ -17,11 +17,12 @@ export class LoginGuard implements CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-
     if (this.tokenService.hasToken()) {
-      this.router.navigate(['hire-product']);
-      return false;
+      if(this.tokenService.getUserRoles() == 'admin') {
+        this.router.navigate(['admin']);
+        return true;
+      }
     }
-    return true;
+    return false;
   }
 }

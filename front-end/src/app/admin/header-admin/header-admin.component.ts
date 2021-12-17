@@ -17,10 +17,19 @@ export class HeaderAdminComponent implements OnInit {
     private route: Router
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // fiz isso porque não utilizei modules
+    // ainda não da pra usa o loadChildren e
+    // consequentemente o canLoad (routeGuard)
+    this.isAdmin();
+  }
+
+  isAdmin() {
+    if (!this.tokenService.isAdmin())
+      this.route.navigate(['']);
+  }
 
   logout() {
-    console.log('logout');    
     this.tokenService.removeToken()
     this.route.navigateByUrl('/login');
   }

@@ -3,7 +3,7 @@ import { UserInfoToken } from 'src/app/models/user/user-info-token';
 
 const KEY_TOKEN = 'token';
 const KEY_USERNAME = 'username';
-const KEY_ROLES = 'user';
+const KEY_ROLES = 'roles';
 
 @Injectable({ providedIn: 'root' })
 export class TokenService {
@@ -37,6 +37,13 @@ export class TokenService {
 
   getUserRoles() {
     return localStorage.getItem(KEY_ROLES);
+  }
+
+  isAdmin() {
+    if (this.hasToken() && this.getUserRoles() == 'admin') {
+      return true
+    }
+    return false
   }
 
   removeToken() {

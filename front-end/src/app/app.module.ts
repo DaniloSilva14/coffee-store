@@ -34,7 +34,7 @@ import { DialogAlterUserComponent } from './admin/dialog-alter-user/dialog-alter
 import { DialogDeleteUserComponent } from './admin/dialog-delete-user/dialog-delete-user.component';
 import { DialogCreateUserComponent } from './admin/dialog-create-user/dialog-create-user.component';
 import { DialogChooseProductComponent } from './components/dialog-choose-product/dialog-choose-product.component';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +73,8 @@ import { DialogChooseProductComponent } from './components/dialog-choose-product
     MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

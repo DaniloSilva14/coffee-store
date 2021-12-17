@@ -18,7 +18,15 @@
           <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" [routerLink]="['/store']">Loja</a></li>
           <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" [routerLink]="['/about']">Sobre nós </a></li>
           <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" [routerLink]="['/contact']">Contato</a></li>
-          <li class="nav-item px-lg-4" *ngIf="logado"><a class="nav-link text-uppercase login-logout" (click)="logout()"> Logout </a></li>
+          <li class="nav-item px-lg-4" *ngIf="logado">
+            <a class="nav-link text-uppercase login-logout" 
+              (click)="logout()" 
+              mat-raised-button
+              matTooltip="{{nameUser}}"
+              matTooltipPosition="above">
+              Logout 
+            </a>
+          </li>
           <li class="nav-item px-lg-4" *ngIf="!logado"><a class="nav-link text-uppercase login-logout" [routerLink]="['/login']"> Login </a></li>
         </ul>
       </div>

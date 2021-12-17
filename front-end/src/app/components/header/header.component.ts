@@ -10,6 +10,7 @@ import { TokenService } from 'src/app/services/token/token.service';
 export class HeaderComponent implements OnInit {
 
   typeUser: String | null = 'user';
+  nameUser: String | null = '';
   logado: Boolean = false;
   
   constructor(
@@ -20,8 +21,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if(this.tokenService.hasToken()){
       this.logado = true;
-      if(this.tokenService.getUserRoles())
-        this.typeUser = this.tokenService.getUserRoles(); 
+      this.typeUser = this.tokenService.getUserRoles(); 
+      this.nameUser = this.tokenService.getUserName(); 
     }      
   }
 

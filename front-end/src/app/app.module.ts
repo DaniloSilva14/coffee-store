@@ -12,7 +12,7 @@ import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatToolbarModule} from  '@angular/material/toolbar';
 import { StoreComponent } from './components/store/store.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { HeaderAdminComponent } from './admin/header-admin/header-admin.component';
@@ -35,6 +35,8 @@ import { DialogDeleteUserComponent } from './admin/dialog-delete-user/dialog-del
 import { DialogCreateUserComponent } from './admin/dialog-create-user/dialog-create-user.component';
 import { DialogChooseProductComponent } from './components/dialog-choose-product/dialog-choose-product.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AuthInterceptor } from './security/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +78,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

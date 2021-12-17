@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { TokenService } from 'src/app/services/token/token.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private tokenService: TokenService,
     private router: Router
   ) { }
 
@@ -31,7 +33,8 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password')?.value;
 
     this.authService.login(email, password).subscribe(() => {
-        if(email == 'admin') {
+      let isAdmin = this.tokenService.getUserRoles();
+        if(isAdmin == 'admin') {
           this.router.navigate(['/admin']);
         } else {
           this.router.navigate(['/']);

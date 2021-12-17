@@ -33,6 +33,7 @@ import { DialogCreateProductComponent } from './admin/dialog-create-product/dial
 import { DialogAlterUserComponent } from './admin/dialog-alter-user/dialog-alter-user.component';
 import { DialogDeleteUserComponent } from './admin/dialog-delete-user/dialog-delete-user.component';
 import { DialogCreateUserComponent } from './admin/dialog-create-user/dialog-create-user.component';
+import { DialogChooseProductComponent } from './components/dialog-choose-product/dialog-choose-product.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { DialogCreateUserComponent } from './admin/dialog-create-user/dialog-cre
     DialogCreateProductComponent,
     DialogAlterUserComponent,
     DialogDeleteUserComponent,
-    DialogCreateUserComponent
+    DialogCreateUserComponent,
+    DialogChooseProductComponent
   ],
   imports: [
     BrowserModule,

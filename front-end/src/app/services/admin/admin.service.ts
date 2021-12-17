@@ -34,4 +34,16 @@ export class AdminService {
   deleteUser(id: Number) {
     return this.http.request('delete', 'http://localhost:3000/customers', { body: { "id": id } })
   }
+
+  criarUser(user: User) {
+    return this.http.request('post', 'http://localhost:3000/customers', {
+      body: {
+        "name": user.name,
+        "address": user.address,
+        "phone": user.phone,
+        "email": user.email,
+        "password": user.password
+      }
+    })
+  }
 }

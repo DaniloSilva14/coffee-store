@@ -1,4 +1,5 @@
 export interface UserInfoToken {
-    userName: string;
-    token: string;
+  token: string;
+  userName: string,
+  userRoles: string
 }

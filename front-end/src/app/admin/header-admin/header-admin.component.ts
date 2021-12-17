@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token/token.service';
 
 @Component({
   selector: 'app-header-admin',
@@ -10,9 +12,17 @@ export class HeaderAdminComponent implements OnInit {
   @Input()
   type: any;
 
-  constructor() { }
+  constructor(
+    private tokenService: TokenService,
+    private route: Router
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  logout() {
+    console.log('logout');    
+    this.tokenService.removeToken()
+    this.route.navigateByUrl('/login');
   }
-
+  
 }

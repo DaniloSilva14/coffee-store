@@ -3,6 +3,7 @@ import { UserInfoToken } from 'src/app/models/user/user-info-token';
 
 const KEY_TOKEN = 'token';
 const KEY_USERNAME = 'username';
+const KEY_ROLES = 'user';
 
 @Injectable({ providedIn: 'root' })
 export class TokenService {
@@ -14,13 +15,15 @@ export class TokenService {
   setUserInfo(userInfo: UserInfoToken) {
     this.setToken(userInfo.token);
     this.setUserName(userInfo.userName);
+    this.setUserRoles(userInfo.userRoles);
   }
 
   getUserInfo() {
     const token = this.getToken();
     const userName = this.getUserName();
-    if (token && userName)
-      return { userName, token } as UserInfoToken;
+    const userRoles = this.getUserRoles();
+    if (token && userName && userRoles)
+      return { token, userName,  userRoles } as UserInfoToken;
     return null;
   }
 
@@ -32,9 +35,14 @@ export class TokenService {
     return localStorage.getItem(KEY_USERNAME);
   }
 
+  getUserRoles() {
+    return localStorage.getItem(KEY_ROLES);
+  }
+
   removeToken() {
     localStorage.removeItem(KEY_TOKEN);
     localStorage.removeItem(KEY_USERNAME);
+    localStorage.removeItem(KEY_ROLES);
   }
 
   private setToken(token: string) {
@@ -43,5 +51,9 @@ export class TokenService {
 
   private setUserName(userName: string) {
     window.localStorage.setItem(KEY_USERNAME, userName);
+  }
+
+  private setUserRoles(userRoles: string) {
+    window.localStorage.setItem(KEY_ROLES, userRoles);
   }
 }

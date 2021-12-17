@@ -49,10 +49,8 @@ exports.authenticate = async(req, res, next) => {
 
     res.status(200).send({
       token: token,
-      data: {
-        email: customer.email,
-        name: customer.name
-      }
+      userName: customer.name,
+      userRoles: customer.roles
     });
   } catch (e) {
     res.status(500).send({
@@ -85,10 +83,8 @@ exports.refreshToken = async(req, res, next) => {
 
     res.status(200).send({
       token: tokenData,
-      data: {
-        email: customer.email,
-        name: customer.name
-      }
+      userName: customer.name,
+      userRoles: customer.roles
     });
   } catch (e) {
     res.status(500).send({

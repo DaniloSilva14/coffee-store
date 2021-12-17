@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Alterar Produto</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Endereço</mat-label>
+      <input matInput formControlName="address" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Telefone</mat-label>
+      <input matInput formControlName="phone" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nova Senha</mat-label>
+      <input matInput formControlName="password" >
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions class="center">
+  <button mat-button (click)="onNoClick()"> NÃO </button>
+  <button mat-raised-button color="warn" (click)="onYesClick()"> SIM </button>
+</div>

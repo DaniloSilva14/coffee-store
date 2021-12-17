@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/app/models/manageAdmin/user';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import { DialogAlterUserComponent } from '../dialog-alter-user/dialog-alter-user.component';
 
 @Component({
   selector: 'app-manage-users',
@@ -9,13 +11,50 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 })
 export class ManageUsersComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'address', 'phone', 'email'];
+  columHead: string[] = ['name', 'address', 'phone', 'email', 'Opções'];
   dataSource: User[] = [];
 
   constructor(
-    private adminService: AdminService) { }
+    public dialog: MatDialog, 
+    private adminService: AdminService,
+  ) {}
 
   ngOnInit(): void {
     this.adminService.getUsers().subscribe(data => this.dataSource = data );
   }
+
+  toEdit(item: User): void {    
+    const dialogRef = this.dialog.open(DialogAlterUserComponent, {
+      width: '400px',
+      data: item,
+    });
+
+    dialogRef.afterClosed().subscribe(()=> 
+      this.adminService.getUsers()
+        .subscribe(data => this.dataSource = data)
+    );    
+  }
+
+  // toDelete(id: Number): void {
+  //   const dialogRef = this.dialog.open(DialogDeleteProductComponent, {
+  //     width: '250px',
+  //     data: id,
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(()=> 
+  //     this.productService.getProdutos()
+  //       .subscribe(data => this.dataSource = data)
+  //   );    
+  // }
+
+  // toCreate(): void {
+  //   const dialogRef = this.dialog.open(DialogCreateProductComponent, {
+  //     width: '400px'
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(()=> 
+  //     this.productService.getProdutos()
+  //       .subscribe(data => this.dataSource = data)
+  //   );    
+  // }
 }

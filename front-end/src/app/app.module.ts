@@ -30,6 +30,7 @@ import { DialogDeleteProductComponent } from './admin/dialog-delete-product/dial
 import { DialogAlterProductComponent } from './admin/dialog-alter-product/dialog-alter-product.component';
 import { MatInputModule } from '@angular/material/input';
 import { DialogCreateProductComponent } from './admin/dialog-create-product/dialog-create-product.component';
+import { DialogAlterUserComponent } from './admin/dialog-alter-user/dialog-alter-user.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { DialogCreateProductComponent } from './admin/dialog-create-product/dial
     ManageSalesComponent,
     DialogDeleteProductComponent,
     DialogAlterProductComponent,
-    DialogCreateProductComponent
+    DialogCreateProductComponent,
+    DialogAlterUserComponent
   ],
   imports: [
     BrowserModule,

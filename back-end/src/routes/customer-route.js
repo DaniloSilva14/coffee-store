@@ -13,5 +13,6 @@ router.post('/change-permission', controller.changePermission);
 router.delete('/', authService.isAdmin, controller.delete);
 // router.get('/', authService.isAdmin, controller.get);
 router.get('/', controller.get);
+router.put('/:id', controller.put);
 
 module.exports = router;

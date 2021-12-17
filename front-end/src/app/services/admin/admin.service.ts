@@ -18,4 +18,16 @@ export class AdminService {
   changePermission(id: Number){ 
     return this.http.request('POST', 'http://localhost:3000/customers/change-permission', { body: { "id": id } })
   }
+
+  alterarUser(user: User) {    
+    return this.http.request('put', `http://localhost:3000/customers/${user._id}`, {
+      body: {
+        "name": user.name,
+        "address": user.address,
+        "phone": user.phone,
+        "email": user.email,
+        "password": user.password
+      }
+    })
+  }
 }

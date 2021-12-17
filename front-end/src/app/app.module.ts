@@ -36,6 +36,7 @@ import { DialogCreateUserComponent } from './admin/dialog-create-user/dialog-cre
 import { DialogChooseProductComponent } from './components/dialog-choose-product/dialog-choose-product.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthInterceptor } from './security/auth.interceptor';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { AuthInterceptor } from './security/auth.interceptor';
     DialogAlterUserComponent,
     DialogDeleteUserComponent,
     DialogCreateUserComponent,
-    DialogChooseProductComponent
+    DialogChooseProductComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

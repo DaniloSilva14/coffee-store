@@ -9,6 +9,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { StoreComponent } from './components/store/store.component';
 
 const routes: Routes = [
@@ -34,29 +35,28 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: HomeAdminComponent,
-    // aki tem q ter guarda de rota
+    component: HomeAdminComponent
   },
   {
     path: 'admin/manage-users',
-    component: ManageUsersComponent,
-    // aki tem q ter guarda de rota
+    component: ManageUsersComponent
   },
   {
     path: 'admin/manage-admins',
-    component: ManageAdminsComponent,
-    // aki tem q ter guarda de rota
+    component: ManageAdminsComponent
   },
   {
     path: 'admin/manage-products',
-    component: ManageProductsComponent,
-    // aki tem q ter guarda de rota
+    component: ManageProductsComponent
   },
   {
     path: 'admin/manage-sales',
-    component: ManageSalesComponent,
-    // aki tem q ter guarda de rota
-  }
+    component: ManageSalesComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  },
 ];
 
 @NgModule({

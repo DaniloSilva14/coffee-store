@@ -20,10 +20,16 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isLogged();
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', Validators.required],
     });
+  }
+
+  isLogged() {
+    if (this.tokenService.hasToken())
+      this.router.navigate(['']);
   }
 
   login() {

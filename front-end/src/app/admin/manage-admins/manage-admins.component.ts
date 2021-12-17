@@ -25,6 +25,7 @@ export class ManageAdminsComponent implements OnInit {
     else 
       user.roles = 'admin' 
  
-    this.adminService.changePermission(user._id);
+    this.adminService.changePermission(user._id)
+      .subscribe(() => this.adminService.getUsers().subscribe(data => this.dataSource = data));
   }
 }

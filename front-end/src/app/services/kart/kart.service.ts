@@ -42,6 +42,10 @@ export class KartService {
       return false
   }
 
+  deleteProductKart(id: string) {
+    this.kart = this.kart.filter(p => p._id != id);
+  }
+
   confirmBuy(arrItemOrder: ItemOrder[]){  
     let order:Order = { items: arrItemOrder}  
     return this.http.post('http://localhost:3000/orders', order)

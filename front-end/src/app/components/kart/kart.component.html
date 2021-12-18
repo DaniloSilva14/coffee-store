@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
+  <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center" *ngIf="total">
     <h1 class="pt-4">Finalizar Compra</h1>
     <div class="contactText">
       <table>
@@ -15,9 +15,8 @@
             <td>{{item.qtdKart}}</td>
             <td>{{item.price}}</td>
             <td>
-              <!-- <mat-icon class="hand" (click)="toEdit(item)">edit</mat-icon>
-              <mat-icon class="hand" (click)="toDelete(item._id)">delete</mat-icon> -->
-              <mat-icon class="hand">delete</mat-icon>
+              <!-- <mat-icon class="hand" (click)="toEdit(item)">edit</mat-icon> -->
+              <mat-icon class="hand" (click)="toDelete(item._id)">delete</mat-icon>
             </td>
           </tr>
         </tbody>
@@ -32,6 +31,12 @@
         Concluir compra
       </button>
 
+    </div>
+  </div>
+  <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center" *ngIf="!total">
+    <h1 class="pt-4">Carrinho vazio</h1>
+    <div class="divImage">
+      <img src="https://cdn2.iconfinder.com/data/icons/outline-web-application-1/20/cart-512.png" style="width: 183px; height: 192px;">
     </div>
   </div>
 </div>

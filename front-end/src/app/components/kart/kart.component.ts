@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { KartItem } from 'src/app/models/kart/kart-item';
 import { KartService } from 'src/app/services/kart/kart.service';
+import { DialogDeleteChooseProductComponent } from '../dialog-delete-choose-product/dialog-delete-choose-product.component';
 import { DialogFinalizeComponent } from '../dialog-finalize/dialog-finalize.component';
 
 @Component({
@@ -18,8 +18,7 @@ export class KartComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog, 
-    private kartService: KartService,
-    private router: Router
+    private kartService: KartService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +28,7 @@ export class KartComponent implements OnInit {
 
   calculateTotal() {
     let parcialPrice = 0;
+    this.total = 0;
     this.dataSource.forEach(p => {
       parcialPrice = Number(p.price) * Number(p.qtdKart)
       this.total = Number(this.total) + Number(parcialPrice);
@@ -40,23 +40,17 @@ export class KartComponent implements OnInit {
       width: '400px',
       data: this.dataSource,
     });
-
-    // dialogRef.afterClosed().subscribe(()=> 
-    //   this.productService.getProdutos()
-    //     .subscribe(data => this.dataSource = data)
-    // );    
   }
 
-  // toDelete(id: number): void {
-  //   const dialogRef = this.dialog.open(DialogDeleteProductComponent, {
-  //     width: '250px',
-  //     data: id,
-  //   });
+  toDelete(id: string): void {
+    const dialogRef = this.dialog.open(DialogDeleteChooseProductComponent, {
+      width: '250px',
+      data: id,
+    });
 
-  //   dialogRef.afterClosed().subscribe(()=> 
-  //     this.productService.getProdutos()
-  //       .subscribe(data => this.dataSource = data)
-  //   );    
-  // }
-  
+    dialogRef.afterClosed().subscribe(()=> {
+      this.dataSource = this.kartService.getKart();
+      this.calculateTotal();
+    } );    
+  }
 }

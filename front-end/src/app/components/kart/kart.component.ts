@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { KartItem } from 'src/app/models/kart/kart-item';
 import { KartService } from 'src/app/services/kart/kart.service';
+import { TokenService } from 'src/app/services/token/token.service';
 import { DialogDeleteChooseProductComponent } from '../dialog-delete-choose-product/dialog-delete-choose-product.component';
 import { DialogFinalizeComponent } from '../dialog-finalize/dialog-finalize.component';
 
@@ -18,7 +20,9 @@ export class KartComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog, 
-    private kartService: KartService
+    private kartService: KartService,
+    private tokenService: TokenService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,10 +40,15 @@ export class KartComponent implements OnInit {
   }
 
   finalizeBuy(): void {
-    const dialogRef = this.dialog.open(DialogFinalizeComponent, {
-      width: '400px',
-      data: this.dataSource,
-    });
+    if(!this.tokenService.hasToken()){
+      alert('Faça o login para concluir compra');
+      this.route.navigateByUrl('/login');
+    }else{
+      const dialogRef = this.dialog.open(DialogFinalizeComponent, {
+        width: '400px',
+        data: this.dataSource,
+      });
+    }  
   }
 
   toDelete(id: string): void {

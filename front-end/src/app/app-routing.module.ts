@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { KartComponent } from './components/kart/kart.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SpecialComponent } from './components/special/special.component';
 import { StoreComponent } from './components/store/store.component';
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
   },
+  // {
+  //   path: '',
+  //   component: SpecialComponent,
+  // },
   {
     path: 'store',
     component: StoreComponent,

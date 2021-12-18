@@ -41,6 +41,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { KartComponent } from './components/kart/kart.component';
 import { DialogFinalizeComponent } from './components/dialog-finalize/dialog-finalize.component';
 import { DialogDeleteChooseProductComponent } from './components/dialog-delete-choose-product/dialog-delete-choose-product.component';
+import { SpecialComponent } from './components/special/special.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { DialogDeleteChooseProductComponent } from './components/dialog-delete-c
     NotFoundComponent,
     KartComponent,
     DialogFinalizeComponent,
-    DialogDeleteChooseProductComponent
+    DialogDeleteChooseProductComponent,
+    SpecialComponent
   ],
   imports: [
     BrowserModule,

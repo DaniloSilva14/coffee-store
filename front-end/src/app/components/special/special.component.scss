@@ -1,0 +1,142 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.opcoes 
+{
+  display: flex;
+  border: 1px solid black;
+  padding: 30px;
+  flex-direction: column;
+  z-index: 2;
+  margin: 20px;
+  background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+}
+.form-select 
+{
+  margin-left: 10px;
+  width: 160px;
+  height: 40px;
+}
+.component 
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(#c57e65, black);
+  border-radius: 2px;
+}
+.container
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.cup 
+{
+  position: relative;
+  width: 25.6vw;
+  height: 58.5vh;
+  background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+  border-bottom-left-radius: 45%;
+  border-bottom-right-radius: 45%;
+  border-top-right-radius: 9%;
+  border-top-left-radius: 9%;
+}
+
+// colors-cup
+.cup-white { background: linear-gradient(to right, #f9f9f9, #d9d9d9);}
+.cup-red { background: linear-gradient(to right, #d87979, red);}
+.cup-blue { background: linear-gradient(to right, #807ebb, blue);}
+.cup-black { background: linear-gradient(to right, #2f2d2d, black);}
+
+.top 
+{
+  position: absolute;
+  top: -2.7vh;
+  left: 0;
+  width: 100%;
+  height: 11.7vh;
+  background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+  border-radius: 50%;
+}
+.circle
+{
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
+  width: calc(100% - 20px);
+  height: 9.8vh;
+  background: linear-gradient(to left, #f9f9f9, #d9d9d9);
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.coffee 
+{
+  position: absolute;
+  top: 3.9vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 50%;
+}
+.vapour
+{
+  position: relative;
+  display: flex;
+  z-index: 1;
+  padding: 0 3.9vh;
+}
+.vapour span 
+{
+  position: relative;
+  bottom: 50px;
+  display: block;
+  margin: 0 2px 50px;
+  min-width: 8px;
+  height: 120px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: animate 5s linear infinite;
+  opacity: 0;
+  filter: blur(8px);
+  animation-delay: calc(var(--i) * -0.5s);
+}
+@keyframes animate 
+{
+  0%
+  {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  } 
+  15%
+  {
+    opacity: 1;
+  }  
+  50%
+  {
+    transform: translateY(-150px) scale(5);
+  }  
+  95%
+  {
+    opacity: 0;
+  }  
+  100%
+  {
+    transform: translateY(-300px) scale(10);
+  }  
+}
+
+@media screen and (max-width: 440px) {
+  .opcoes-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

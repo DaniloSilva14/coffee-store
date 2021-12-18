@@ -1,0 +1,51 @@
+<div class="component">
+  <div class="container">
+    <div class="cup {{color}}">
+      <div class="top">
+        <div class="vapour" *ngIf="flag">
+          <span style="--i: 1;"></span>
+          <span style="--i: 3;"></span>
+          <span style="--i: 16;"></span>
+          <span style="--i: 5;"></span>
+          <span style="--i: 13;"></span>
+          <span style="--i: 20;"></span>
+          <span style="--i: 6;"></span>
+          <span style="--i: 7;"></span>
+          <span style="--i: 10;"></span>
+          <span style="--i: 8;"></span>
+          <span style="--i: 17;"></span>
+          <span style="--i: 11;"></span>
+          <span style="--i: 12;"></span>
+          <span style="--i: 14;"></span>
+          <span style="--i: 2;"></span>
+          <span style="--i: 9;"></span>
+          <span style="--i: 15;"></span>
+          <span style="--i: 4;"></span>
+          <span style="--i: 19;"></span>
+        </div>
+        <div class="circle">
+          <div class="coffee"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="opcoes">
+    <div class="d-flex opcoes-row">
+      <h1>Cor xicara: </h1>
+      <select class="form-select" [(ngModel)]="color">
+        <option value="cup-white" selected>Branca</option>
+        <option value="cup-red">Vermelho</option>
+        <option value="cup-blue" selected>Azul</option>
+        <option value="cup-black">Preto</option>
+      </select>
+    </div>
+
+    <div class="d-flex opcoes-row">
+      <h1 style="margin-right: 10px;">Esquentar: </h1>
+      <!-- <mat-slide-toggle class="teste" (change)="changeRole(item)" [checked]="item.roles == 'admin'">{{item.roles}}</mat-slide-toggle> -->
+      <span (click)="onChange()"><input type="checkbox" data-toggle="toggle" data-size="sm" data-width="159px"></span>
+    </div>
+  </div>
+  
+</div>

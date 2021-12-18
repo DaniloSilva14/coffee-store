@@ -20,3 +20,13 @@ a { text-decoration: none; }
   margin-bottom: -24px;
   justify-content: space-around;
 }
+
+.btnLight{
+  background: #f6e1c5;
+  border: solid 1px brown;
+}
+
+.btnDark {
+  background: linear-gradient(#a46b56, rgb(46, 43, 43));
+  color: white;
+}

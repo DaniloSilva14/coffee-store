@@ -1,14 +1,31 @@
-<h1 mat-dialog-title>Adicionar ao Carrinho</h1>
+<div class="div-btn-close">
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+</div>
+
+<h1 mat-dialog-title>{{data.title}}</h1>
 
 <div mat-dialog-content>
   <form [formGroup]="kartForm">
-    <p>{{this.data.title}}</p>
-    <p>{{this.data.qtd}}</p>
-    <input formControlName="qtd">
+    <div class="content">
+      <img src="{{data.image}}" class="imgProd">
+      <div class="information">
+        <div><strong> Preço: </strong> <h1>{{data.price}}</h1></div>
+        <div class="chooseQtd">
+          <strong> Quantidade: </strong>
+          <mat-select formControlName="qtdKart" class="selectQtd">
+            <mat-option *ngFor="let item of qtdOfProducts" value="{{item}}">{{item}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <p><strong> Descrição : </strong> {{data.description}}</p>
+      </div>
+    </div>    
   </form>
 </div>
 
 <div mat-dialog-actions class="center">
-  <button mat-button (click)="onNoClick()"> NÃO </button>
-  <button mat-raised-button color="warn" (click)="onYesClick()"> SIM </button>
+  <button mat-raised-button color="warn" (click)="onFinalizeClick()"> Finalizar Compra </button>
+  <button mat-raised-button color="warn" (click)="onYesClick()"> Add ao carrinho </button>
 </div>

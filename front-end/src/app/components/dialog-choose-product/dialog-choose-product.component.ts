@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { KartItem } from 'src/app/models/kart/kart-item';
 import { Product } from 'src/app/models/product/product';
 import { KartService } from 'src/app/services/kart/kart.service';
@@ -13,23 +14,32 @@ import { KartService } from 'src/app/services/kart/kart.service';
 export class DialogChooseProductComponent implements OnInit {
 
   kartForm: FormGroup = new FormGroup({});
+  qtdOfProducts : number[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<DialogChooseProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Product,
     private kartService: KartService,
+    private route: Router
   ) {}
 
   ngOnInit(): void { 
+    this.populateQtdOfProducts();
     this.kartForm = this.formBuilder.group({
-      idProduct: [this.data._id, [Validators.required]],
-      qtd:['', [Validators.required]]
+      _id: [this.data._id, [Validators.required]],
+      title: [this.data.title, [Validators.required]],
+      slug: [this.data.slug, [Validators.required]],
+      description: [this.data.description, [Validators.required]],
+      price: [this.data.price, [Validators.required]],
+      qtdKart: ['', [Validators.required]],
+      image: [this.data.image, [Validators.required]],
     });
   }
 
-  onNoClick(): void {
+  onFinalizeClick(): void {
     this.dialogRef.close();
+    this.route.navigate(['store/kart']);
   }
 
   onYesClick(): void {
@@ -39,4 +49,11 @@ export class DialogChooseProductComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  populateQtdOfProducts(){
+    let i = 1;
+    do {
+      this.qtdOfProducts.push(i);
+      i++;
+    } while(i <= this.data.qtd);
+  }
 }

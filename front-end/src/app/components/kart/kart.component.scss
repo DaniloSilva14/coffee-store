@@ -1,0 +1,68 @@
+.container {
+  background-color: #f6e1c5;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.contactText {
+  padding: 40px 30px;
+}
+
+table {
+  width: 100%;
+  background-color: white;
+  caption-side: bottom;
+  border-collapse: collapse;
+  border-radius: 2px;
+  box-shadow: -3px 4px 15px -4px rgba(0,0,0,0.6);
+}
+
+th{
+  text-align: center !important;
+  padding: 20px 0;
+  padding-left: 24px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0,0,0,.12);
+  color: #0000008A;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+td {
+  text-align: center !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  max-width: 20px !important;
+  width: 200px;
+  padding: 20px 0;
+  padding-left: 24px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0,0,0,.12);
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: lightsalmon ;
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: brown ;
+}
+
+.hand {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.priceTotal {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 5px;
+}
+
+.btnEnviar {
+  margin-top: 15px;
+  border: solid 1px brown;
+}

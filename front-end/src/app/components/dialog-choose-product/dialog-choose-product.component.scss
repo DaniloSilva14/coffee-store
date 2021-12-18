@@ -6,3 +6,59 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+.div-btn-close {
+  display: flex; 
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.close-button {
+  float: right;
+  top:-24px;
+  right:-24px;
+}
+
+.close-icon {
+  transition: 1s ease-in-out;
+}
+
+.close-icon:hover {
+  transform: rotate(180deg);
+}
+
+::ng-deep .icon-outside .close-button{
+  float: right;
+  top:-52px;
+  right:-52px;
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+ overflow: unset
+}
+
+.content {
+  display: flex;
+}
+
+.information {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.imgProd {
+  width: 300px;
+}
+
+.chooseQtd {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+mat-select {
+  padding: 2px;
+  margin: 5px;
+  border: solid 1px black;
+  border-radius: 2px;
+}

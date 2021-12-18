@@ -1,4 +1,9 @@
 export interface KartItem {
-  idProduct: number,
-  qtd: number
+  _id: string,
+  title: String,
+  slug: String,
+  description: String,
+  price: number,
+  qtdKart: number,
+  image: String
 }

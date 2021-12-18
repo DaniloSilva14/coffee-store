@@ -37,7 +37,7 @@ export class ManageUsersComponent implements OnInit {
     );    
   }
 
-  toDelete(id: Number): void {
+  toDelete(id: string): void {
     const dialogRef = this.dialog.open(DialogDeleteUserComponent, {
       width: '250px',
       data: id,

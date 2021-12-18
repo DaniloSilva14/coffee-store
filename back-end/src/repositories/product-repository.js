@@ -39,8 +39,8 @@ exports.sellProduct = async(id, data) => {
 
   if(!product) return;
 
-  let newQtd = product.qtd - data.qtd;
-  let newSold = product.sold + data.qtd;
+  let newQtd = product.qtd - data;
+  let newSold = Number(product.sold) + Number(data);
 
   await  Product
     .findByIdAndUpdate(id, {

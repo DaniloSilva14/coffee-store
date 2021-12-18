@@ -11,7 +11,7 @@ export class DialogDeleteProductComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogDeleteProductComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Number,
+    @Inject(MAT_DIALOG_DATA) public data: string,
     private productService: ProductsService,
   ) {}
 

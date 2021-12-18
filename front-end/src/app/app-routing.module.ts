@@ -8,6 +8,7 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
+import { KartComponent } from './components/kart/kart.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { StoreComponent } from './components/store/store.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'store',
     component: StoreComponent,
+  },
+  {
+    path: 'store/kart',
+    component: KartComponent,
   },
   {
     path: 'about',

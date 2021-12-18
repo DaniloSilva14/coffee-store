@@ -37,6 +37,9 @@ import { DialogChooseProductComponent } from './components/dialog-choose-product
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthInterceptor } from './security/auth.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MatSelectModule } from '@angular/material/select';
+import { KartComponent } from './components/kart/kart.component';
+import { DialogFinalizeComponent } from './components/dialog-finalize/dialog-finalize.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     DialogDeleteUserComponent,
     DialogCreateUserComponent,
     DialogChooseProductComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    KartComponent,
+    DialogFinalizeComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +83,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule
   ],
   providers: [
     {

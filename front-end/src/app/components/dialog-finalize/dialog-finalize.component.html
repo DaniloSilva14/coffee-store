@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Finalizar Compra</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="finalizeForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cartão de credito</mat-label>
+      <input matInput formControlName="creditCard" >
+    </mat-form-field>
+
+    <h1>{{total}}</h1>
+  </form>
+</div>
+
+<div mat-dialog-actions class="center">
+  <!-- <button mat-button (click)="onNoClick()"> NÃO </button> -->
+  <button mat-raised-button color="warn" (click)="onYesClick()"> Concluir </button>
+</div>

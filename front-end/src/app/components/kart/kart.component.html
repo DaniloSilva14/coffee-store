@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
+    <h1 class="pt-4">Finalizar Compra</h1>
+    <div class="contactText">
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let item of columHead">{{this.item}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataSource">
+            <td>{{item.title}}</td>
+            <td>{{item.qtdKart}}</td>
+            <td>{{item.price}}</td>
+            <td>
+              <!-- <mat-icon class="hand" (click)="toEdit(item)">edit</mat-icon>
+              <mat-icon class="hand" (click)="toDelete(item._id)">delete</mat-icon> -->
+              <mat-icon class="hand">delete</mat-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="priceTotal">
+        <h1>Total: R$ {{total}}</h1>
+      </div>
+
+      <!-- <button mat-fab color="primary" class="btnPlus" (click)="toCreate()"> -->
+      <button class="btn btnEnviar" (click)="finalizeBuy()">
+        Concluir compra
+      </button>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

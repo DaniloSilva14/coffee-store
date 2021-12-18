@@ -15,7 +15,7 @@ export class AdminService {
     return this.http.get<User[]>('http://localhost:3000/customers')
   }
 
-  changePermission(id: Number){ 
+  changePermission(id: string){ 
     return this.http.request('POST', 'http://localhost:3000/customers/change-permission', { body: { "id": id } })
   }
 
@@ -31,7 +31,7 @@ export class AdminService {
     })
   }
 
-  deleteUser(id: Number) {
+  deleteUser(id: string) {
     return this.http.request('delete', 'http://localhost:3000/customers', { body: { "id": id } })
   }
 

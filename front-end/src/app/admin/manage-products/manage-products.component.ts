@@ -38,7 +38,7 @@ export class ManageProductsComponent implements OnInit {
     );    
   }
 
-  toDelete(id: Number): void {
+  toDelete(id: string): void {
     const dialogRef = this.dialog.open(DialogDeleteProductComponent, {
       width: '250px',
       data: id,

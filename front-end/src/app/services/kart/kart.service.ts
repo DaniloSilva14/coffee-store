@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { KartItem } from 'src/app/models/kart/kart-item';
 import { Order } from 'src/app/models/order/order';
 import { ItemOrder } from 'src/app/models/order/item-order';
+import { OrderComplete } from 'src/app/models/order/order-complete';
 
 @Injectable({
   providedIn: 'root'
@@ -68,5 +69,13 @@ export class KartService {
 
   toKart() {
     this.fromLogin = 0;
+  }
+
+  getOrders(){
+    return this.http.get<OrderComplete[]>('http://localhost:3000/orders')
+  }
+
+  changeStatusOrder(id: string){
+    return this.http.request('POST', 'http://localhost:3000/orders/change-status', { body: { "id": id } })
   }
 }

@@ -14,7 +14,7 @@
             <td>{{item.name}}</td>
             <td>{{item.email}}</td>
             <td>
-              <mat-slide-toggle class="teste" (change)="changeRole(item)" [checked]="item.roles == 'admin'">{{item.roles}}</mat-slide-toggle>
+              <mat-slide-toggle (change)="changeRole(item)" [checked]="item.roles == 'admin'">{{item.roles}}</mat-slide-toggle>
             </td>
           </tr>
         </tbody>

@@ -36,3 +36,17 @@ exports.post = async(req, res, next) => {
     });
   }
 };
+
+exports.changeStatus = async(req, res, next) => {
+  try {
+    await repository.changeStatus(req.body.id);
+
+    res.status(201).send({ 
+      message: 'Status Order alterado com sucesso'
+    });
+  } catch (e) {
+    res.status(500).send({
+      message: 'Falha ao processar sua requisição'
+    });
+  }
+};

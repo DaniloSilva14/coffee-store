@@ -1,7 +1,12 @@
 <app-header-admin [type]="1"></app-header-admin>
-<div class="container">
+<div class="container" *ngIf="opcao">
   <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
-    <h1 class="pt-4">Gerenciar Vendas</h1>
+    <h1 class="pt-4">Gerenciar Orders</h1>
+
+    <div class="d-flex flex-column justify-content-center align-items-center py-2">
+      <button class="btn btnDark" (click)="visualizaRelatorio()">Visualizar Vendas por produto</button>
+    </div>
+
     <div class="contactText">
       <table>
         <thead>
@@ -10,17 +15,46 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of dataSource">
-            <td>{{item.title}}</td>
-            <td>{{item.price | currency:'BRL'}}</td>
-            <td>{{item.qtd}}</td>
-            <td>{{item.sold}}</td>
+          <tr *ngFor="let itemA of dataSource_2">
+            <td>{{itemA.number}}</td>
+            <td>
+              <mat-slide-toggle (change)="changeStatus(itemA)" [checked]="itemA.status != 'created'">{{itemA.status}}</mat-slide-toggle>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
+<div class="container" *ngIf="!opcao">
+  <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
+    <h1 class="pt-4">Visualizar Vendas por produto</h1>
+
+    <div class="d-flex flex-column justify-content-center align-items-center py-2">
+      <button class="btn btnDark" (click)="visualizaOrders()">Gerenciar Orders</button>
+    </div>
+
+    <div class="contactText">
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let item of columHead">{{this.item}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let itemB of dataSource_1">
+            <td>{{itemB.title}}</td>
+            <td>{{itemB.price | currency:'BRL'}}</td>
+            <td>{{itemB.qtd}}</td>
+            <td>{{itemB.sold}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 <app-footer></app-footer>
 
 <!-- <app-header-admin [type]="1"></app-header-admin>

@@ -11,7 +11,7 @@
     <div class="content">
       <img src="{{data.image}}" class="imgProd">
       <div class="information">
-        <div><strong> Preço: </strong> <h1>{{data.price}}</h1></div>
+        <div><strong> Preço: </strong> <h1>{{data.price | currency:'BRL'}}</h1></div>
         <div class="chooseQtd">
           <strong> Quantidade: </strong>
           <mat-select formControlName="qtdKart" class="selectQtd">

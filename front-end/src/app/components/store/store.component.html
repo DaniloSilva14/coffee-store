@@ -10,7 +10,7 @@
         <p>{{prod.title}}</p>
       </div>
       <div class="produtoPreço">
-        <p>Preço: R$ {{prod.price}}</p>
+        <p>Preço: {{prod.price | currency:'BRL'}}</p>
       </div>
       <div class="produtoQuantidade">
         <p>Qtd disponivel: {{prod.qtd}}</p>

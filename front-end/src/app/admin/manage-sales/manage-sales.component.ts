@@ -9,7 +9,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class ManageSalesComponent implements OnInit {
   
-  displayedColumns: string[] = ['title', 'price', 'qtd', 'sold'];
+  columHead: string[] = ['Nome', 'Preço', 'Qtd (estoque)', 'Vendidos'];
   dataSource: Product[] = [];
 
   constructor(

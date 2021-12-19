@@ -3,7 +3,7 @@ export interface Product {
   title: String,
   slug: String,
   description: String,
-  price: String,
+  price: number,
   qtd: number,
   sold: number
   image: String

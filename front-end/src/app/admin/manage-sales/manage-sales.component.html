@@ -3,31 +3,48 @@
   <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
     <h1 class="pt-4">Gerenciar Vendas</h1>
     <div class="contactText">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef> Nome </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.title}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef> Preço </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.price}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="qtd">
-          <th mat-header-cell *matHeaderCellDef> Quantidade </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.qtd}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="sold">
-          <th mat-header-cell *matHeaderCellDef> Vendidos </th>
-          <td class="cortaLinha" mat-cell *matCellDef="let element"> {{element.sold}} </td>
-        </ng-container>
-              
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let item of columHead">{{this.item}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataSource">
+            <td>{{item.title}}</td>
+            <td>{{item.price | currency:'BRL'}}</td>
+            <td>{{item.qtd}}</td>
+            <td>{{item.sold}}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
 </div>
 <app-footer></app-footer>
+
+<!-- <app-header-admin [type]="1"></app-header-admin>
+<div class="container">
+  <div class="row py-3 d-flex flex-column justify-content-center align-items-center text-center">
+    <h1 class="pt-4">Gerenciar Admins</h1>
+    <div class="contactText">
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let item of columHead">{{this.item}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataSource">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>
+              <mat-slide-toggle class="teste" (change)="changeRole(item)" [checked]="item.roles == 'admin'">{{item.roles}}</mat-slide-toggle>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer> -->

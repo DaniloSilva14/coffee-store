@@ -13,7 +13,7 @@
           <tr *ngFor="let item of dataSource">
             <td>{{item.title}}</td>
             <td>{{item.qtdKart}}</td>
-            <td>{{item.price}}</td>
+            <td>{{item.price | currency:'BRL'}}</td>
             <td>
               <!-- <mat-icon class="hand" (click)="toEdit(item)">edit</mat-icon> -->
               <mat-icon class="hand" (click)="toDelete(item._id)">delete</mat-icon>
@@ -23,7 +23,7 @@
       </table>
 
       <div class="priceTotal">
-        <h1>Total: R$ {{total}}</h1>
+        <h1>Total: {{total  | currency:'BRL'}}</h1>
       </div>
 
       <!-- <button mat-fab color="primary" class="btnPlus" (click)="toCreate()"> -->

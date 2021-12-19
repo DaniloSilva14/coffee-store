@@ -10,6 +10,7 @@ import { ItemOrder } from 'src/app/models/order/item-order';
 export class KartService {
 
   kart: KartItem[] = []
+  fromLogin: number = 0;
 
   constructor(
     private http: HttpClient
@@ -61,5 +62,13 @@ export class KartService {
 
   cleanKart(): void{
     this.kart = [];
+  }
+
+  toLogin() {
+    this.fromLogin = 1;
+  }
+
+  toKart() {
+    this.fromLogin = 0;
   }
 }

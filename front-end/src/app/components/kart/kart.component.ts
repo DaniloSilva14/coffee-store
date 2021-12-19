@@ -47,6 +47,7 @@ export class KartComponent implements OnInit {
         title: 'Oops...',
         text: 'Faça o login para concluir compra',
       }).then(() => {
+        this.kartService.toLogin();
         this.route.navigateByUrl('/login');
       })
     } else {

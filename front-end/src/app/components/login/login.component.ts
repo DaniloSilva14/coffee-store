@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { KartService } from 'src/app/services/kart/kart.service';
 import { TokenService } from 'src/app/services/token/token.service';
 import Swal from 'sweetalert2';
 
@@ -13,10 +14,13 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({});
+  flag: number;
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private tokenService: TokenService,
+    private kartService: KartService,
     private router: Router
   ) { }
 
@@ -26,6 +30,7 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', Validators.required],
     });
+    this.flag = this.kartService.fromLogin;
   }
 
   isLogged() {
@@ -44,7 +49,12 @@ export class LoginComponent implements OnInit {
         if(isAdmin == 'admin') {
           this.router.navigate(['/admin']);
         } else {
-          this.router.navigate(['/']);
+          if(this.flag){
+            this.kartService.toKart();
+            this.router.navigate(['/store/kart']);
+          }
+          else
+            this.router.navigate(['/']);
         }
       },(err) => {
         Swal.fire({

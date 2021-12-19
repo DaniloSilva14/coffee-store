@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/models/manageAdmin/user';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dialog-create-user',
@@ -37,7 +38,14 @@ export class DialogCreateUserComponent implements OnInit {
 
   onYesClick(): void {
     this.adminService.criarUser(this.userForm.value as User)
-      .subscribe(res => this.dialogRef.close())    
+      .subscribe(res => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Criação concluida'      
+        }).then(() => {
+          this.dialogRef.close();  
+        })
+      })    
   }
 
 }

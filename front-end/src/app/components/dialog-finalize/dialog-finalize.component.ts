@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { KartItem } from 'src/app/models/kart/kart-item';
 import { KartService } from 'src/app/services/kart/kart.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-dialog-finalize',
@@ -48,11 +49,16 @@ export class DialogFinalizeComponent implements OnInit {
   onYesClick(): void {
     console.log("Compra finalizada");
     console.log(this.finalizeForm.value);
-    this.kartService.createOrder(this.data).subscribe(res => {
-      alert('Obrigado pela compra');
-      this.kartService.cleanKart(); 
-      this.dialogRef.close();
-      this.route.navigateByUrl(''); 
+    this.kartService.createOrder(this.data).subscribe(res => {      
+      Swal.fire({
+        icon: 'success',
+        title: 'Transação concluida',
+        text: 'Obrigado pela compra',        
+      }).then(() => {
+        this.kartService.cleanKart(); 
+        this.dialogRef.close();
+        this.route.navigateByUrl(''); 
+      })
     })  
   }
 }

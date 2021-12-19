@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Product } from 'src/app/models/product/product';
 import { ProductsService } from 'src/app/services/products/products.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dialog-create-product',
@@ -39,6 +40,13 @@ export class DialogCreateProductComponent implements OnInit {
 
   onYesClick(): void {
     this.productService.criarProdutos(this.productForm.value as Product)
-      .subscribe(res => this.dialogRef.close() )    
+      .subscribe(res => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Criação concluida'      
+        }).then(() => {
+          this.dialogRef.close();  
+        })
+      })    
   }
 }

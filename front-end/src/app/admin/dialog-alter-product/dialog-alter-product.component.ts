@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Product } from 'src/app/models/product/product';
 import { ProductsService } from 'src/app/services/products/products.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dialog-alter-product',
@@ -39,6 +40,13 @@ export class DialogAlterProductComponent implements OnInit {
 
   onYesClick(): void {
     this.productService.alterarProdutos(this.productForm.value as Product)
-      .subscribe(res => this.dialogRef.close())    
+      .subscribe(res => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Alteração concluida'      
+        }).then(() => {
+          this.dialogRef.close();  
+        })
+      })         
   }
 }

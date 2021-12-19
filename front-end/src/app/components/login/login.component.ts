@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenService } from 'src/app/services/token/token.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -46,7 +47,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         }
       },(err) => {
-        alert('Login ou senha inválidos')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Login ou senha inválidos',
+        })
       }
     );
   }

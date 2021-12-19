@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { KartItem } from 'src/app/models/kart/kart-item';
 import { KartService } from 'src/app/services/kart/kart.service';
 import { TokenService } from 'src/app/services/token/token.service';
+import Swal from 'sweetalert2';
 import { DialogDeleteChooseProductComponent } from '../dialog-delete-choose-product/dialog-delete-choose-product.component';
 import { DialogFinalizeComponent } from '../dialog-finalize/dialog-finalize.component';
 
@@ -41,9 +42,14 @@ export class KartComponent implements OnInit {
 
   finalizeBuy(): void {
     if(!this.tokenService.hasToken()){
-      alert('Faça o login para concluir compra');
-      this.route.navigateByUrl('/login');
-    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Faça o login para concluir compra',
+      }).then(() => {
+        this.route.navigateByUrl('/login');
+      })
+    } else {
       const dialogRef = this.dialog.open(DialogFinalizeComponent, {
         width: '400px',
         data: this.dataSource,

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dialog-delete-user',
@@ -23,6 +24,13 @@ export class DialogDeleteUserComponent implements OnInit {
 
   onYesClick(): void {
     this.adminService.deleteUser(this.data)
-      .subscribe(res =>  this.dialogRef.close() )    
+      .subscribe(res =>  {
+        Swal.fire({
+          icon: 'success',
+          title: 'Exclusão concluida'      
+        }).then(() => {
+          this.dialogRef.close();  
+        })
+      } )    
   }
 }

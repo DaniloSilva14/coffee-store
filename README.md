@@ -9,7 +9,7 @@ A funcionalidade especial do nosso projeto é a interação com uma xicara, onde
 
 ## Grupo:
 
-* Danilo Silva
+* Danilo Silva - 11320832
 
 * Jean Carlos
 
@@ -49,7 +49,6 @@ Diagrama:
 
 ![Diagrama do projeto](Diagrama.jpg)
 
-
 ## Comentários sobre o Código:
 
 No projeto, fizemos uma aplicação web, utilizando: HTML, SCSS, JS e TS.
@@ -61,9 +60,19 @@ No backend, utilizamos o Node e tentamos utilizar a arquitetura padrão normalme
 
 Nossos testes serão feitos de forma manual, seguindo as historias a seguir: 
 
-* ?
-* ?
-* ?  
+* Usuário deve poder logar no sitema com o user / user ;
+* Usuário deve conseguir interagir com a funcionalidade especial, conseguindo mudar a cor da xicara e esquentar o café ;
+* Usuário deve conseguir visualizar catalogo de produtos e colocar items no carrinho ;
+* Usuário pode colocar items no carrinho deslogado mas só pode finalizar compra quando estiver logado ;
+* Usuário pode excluir items do carrinho .
+
+* Usuário deve poder logar no sitema com o admin / admin ;
+* Apenas usuarios com permissão admin pode acessar a tela de admin;
+* Admin pode relaizar CRUD de produtos ;
+* Admin pode realizar CRUD de clientes ;
+* Admin pode dar permissão de admin a outros usuarios ;
+* Admin pode mudar status da order;
+* Admin pode visualizar as vendas por produto.
 
 ## Resultados dos testes:
 

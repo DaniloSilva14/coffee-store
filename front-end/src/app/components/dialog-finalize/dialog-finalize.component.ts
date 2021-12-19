@@ -36,7 +36,7 @@ export class DialogFinalizeComponent implements OnInit {
   ngOnInit(): void {
     this.finalizeForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       creditCard: ['', [Validators.required]],
       value: [this.total, [Validators.required]],
     });

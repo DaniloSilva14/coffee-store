@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.loginForm.invalid) return;
+    if (!this.loginForm.valid) return;
 
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;

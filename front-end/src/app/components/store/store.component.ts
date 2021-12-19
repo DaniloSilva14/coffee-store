@@ -30,9 +30,7 @@ export class StoreComponent implements OnInit {
     });
   }
 
-  conferenceKartIsEmpty(){
-    console.log(this.kartService.getKart().length == 0 );
-    
+  conferenceKartIsEmpty(){    
     return this.kartService.getKart().length == 0 ? true : false;
   }
 

@@ -26,7 +26,7 @@ export class DialogCreateUserComponent implements OnInit {
       name: ['', [Validators.required]],
       address: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       roles: ['user', [Validators.required]],
     });

@@ -38,7 +38,9 @@ export class DialogChooseProductComponent implements OnInit {
   }
 
   onFinalizeClick(): void {
-    this.dialogRef.close();
+    if(!this.kartForm.valid) return;
+    this.kartService.sendToKart(this.kartForm.value as KartItem);
+    this.dialogRef.close();    
     this.route.navigate(['store/kart']);
   }
 

@@ -39,6 +39,8 @@ export class DialogCreateProductComponent implements OnInit {
   }
 
   onYesClick(): void {
+    if(!this.productForm.valid) return;
+    
     this.productService.criarProdutos(this.productForm.value as Product)
       .subscribe(res => {
         Swal.fire({

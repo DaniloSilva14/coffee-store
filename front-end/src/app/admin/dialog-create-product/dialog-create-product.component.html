@@ -4,32 +4,56 @@
   <form [formGroup]="productForm">
     <mat-form-field appearance="fill">
       <mat-label>Nome</mat-label>
-      <input matInput formControlName="title" >
+      <input type="text" matInput formControlName="title">
+      <mat-hint>Nome obrigatorio *</mat-hint>
+      <mat-error *ngIf="productForm.controls.title.errors">
+        Entre com um Nome valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Slug</mat-label>
-      <input matInput formControlName="slug" >
+      <input type="text" matInput formControlName="slug">
+      <mat-hint>Slug obrigatorio *</mat-hint>
+      <mat-error *ngIf="productForm.controls.slug.errors">
+        Entre com um Slug valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Descrição</mat-label>
-      <input matInput formControlName="description" >
+      <input type="text" matInput formControlName="description">
+      <mat-hint>Descrição obrigatorio *</mat-hint>
+      <mat-error *ngIf="productForm.controls.description.errors">
+        Entre com uma Descrição valida
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Preço</mat-label>
-      <input matInput formControlName="price" >
+      <input type="number" step=".01" matInput formControlName="price">
+      <mat-hint>Preço obrigatorio *</mat-hint>
+      <mat-error *ngIf="productForm.controls.price.errors">
+        Entre com um Preço valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Quantidade</mat-label>
-      <input matInput formControlName="qtd" >
+      <input type="number" matInput formControlName="qtd">
+      <mat-hint>Quantidade obrigatorio *</mat-hint>
+      <mat-error *ngIf="productForm.controls.qtd.errors">
+        Entre com uma Quantidade valida
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Imagem (base64)</mat-label>
-      <input matInput formControlName="image" >
+      <input type="text" matInput formControlName="image">
+      <mat-hint>Imagem (base64) obrigatorio *</mat-hint>
+      <mat-error *ngIf="productForm.controls.image.errors">
+        Entre com uma Imagem (base64) valida
+      </mat-error>
     </mat-form-field>
   </form>
 </div>

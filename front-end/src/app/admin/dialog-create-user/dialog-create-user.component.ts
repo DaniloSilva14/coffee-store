@@ -26,7 +26,7 @@ export class DialogCreateUserComponent implements OnInit {
       name: ['', [Validators.required]],
       address: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       roles: ['user', [Validators.required]],
     });
@@ -37,6 +37,8 @@ export class DialogCreateUserComponent implements OnInit {
   }
 
   onYesClick(): void {
+    if(!this.userForm.valid) return;
+
     this.adminService.criarUser(this.userForm.value as User)
       .subscribe(res => {
         Swal.fire({

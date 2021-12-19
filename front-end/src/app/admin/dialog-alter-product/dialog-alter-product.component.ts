@@ -39,6 +39,8 @@ export class DialogAlterProductComponent implements OnInit {
   }
 
   onYesClick(): void {
+    if(!this.productForm.valid) return;
+    
     this.productService.alterarProdutos(this.productForm.value as Product)
       .subscribe(res => {
         Swal.fire({

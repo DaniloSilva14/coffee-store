@@ -21,6 +21,13 @@
       </div>     
     </div>
   </div>
+
+  <div class="d-flex justify-content-center" *ngIf="!kartIsEmpty">
+      <button class="btnPersonalized text-center w-auto py-2 my-3 px-5" [routerLink]="['/store/kart']" routerLinkActive="router-link-active">
+        Finalizar Compra
+      </button>
+    </div>
+
 </div>
 
 <app-footer></app-footer>

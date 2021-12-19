@@ -14,6 +14,7 @@ import { DialogChooseProductComponent } from '../dialog-choose-product/dialog-ch
 export class StoreComponent implements OnInit {
 
   produtos: Product[] = [];
+  kartIsEmpty: boolean = true; 
 
   constructor(
     public dialog: MatDialog, 
@@ -25,7 +26,14 @@ export class StoreComponent implements OnInit {
     this.prodService.getProdutos().subscribe(data => {
       this.produtos = data;
       this.qtdProdAtualizada();
+      this.kartIsEmpty = this.conferenceKartIsEmpty();
     });
+  }
+
+  conferenceKartIsEmpty(){
+    console.log(this.kartService.getKart().length == 0 );
+    
+    return this.kartService.getKart().length == 0 ? true : false;
   }
 
   toKart(product: Product): void {    
@@ -39,6 +47,7 @@ export class StoreComponent implements OnInit {
         this.produtos = data;
         this.qtdProdAtualizada();
       });
+      this.kartIsEmpty = this.conferenceKartIsEmpty();
     });    
   }
 

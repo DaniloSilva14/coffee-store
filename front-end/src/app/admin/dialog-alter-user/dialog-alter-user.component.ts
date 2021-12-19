@@ -38,6 +38,8 @@ export class DialogAlterUserComponent implements OnInit {
   }
 
   onYesClick(): void {
+    if(!this.userForm.valid) return;
+
     this.adminService.alterarUser(this.userForm.value as User)
       .subscribe(res => {
         Swal.fire({

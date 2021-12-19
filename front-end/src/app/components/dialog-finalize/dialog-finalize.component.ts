@@ -1,10 +1,18 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { KartItem } from 'src/app/models/kart/kart-item';
 import { KartService } from 'src/app/services/kart/kart.service';
 import Swal from 'sweetalert2'
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-dialog-finalize',
@@ -14,6 +22,7 @@ import Swal from 'sweetalert2'
 export class DialogFinalizeComponent implements OnInit {
 
   finalizeForm: FormGroup = new FormGroup({});
+  matcher = new MyErrorStateMatcher();
   total = 0;
 
   constructor(
@@ -27,7 +36,7 @@ export class DialogFinalizeComponent implements OnInit {
   ngOnInit(): void {
     this.finalizeForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       creditCard: ['', [Validators.required]],
       value: [this.total, [Validators.required]],
     });
@@ -47,8 +56,8 @@ export class DialogFinalizeComponent implements OnInit {
   }
 
   onYesClick(): void {
-    console.log("Compra finalizada");
-    console.log(this.finalizeForm.value);
+    if(!this.finalizeForm.valid) return;
+    
     this.kartService.createOrder(this.data).subscribe(res => {      
       Swal.fire({
         icon: 'success',

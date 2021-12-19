@@ -4,17 +4,29 @@
   <form [formGroup]="finalizeForm">
     <mat-form-field appearance="fill">
       <mat-label>Nome</mat-label>
-      <input matInput formControlName="name" >
-    </mat-form-field>
+      <input type="text" matInput formControlName="name">
+      <mat-hint>Nome obrigatorio *</mat-hint>
+      <mat-error *ngIf="finalizeForm.controls.name.errors">
+        Entre com um nome valido
+      </mat-error>
+    </mat-form-field>  
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" >
+      <input type="email" matInput formControlName="email">
+      <mat-hint>Email obrigatorio *</mat-hint>
+      <mat-error *ngIf="finalizeForm.controls.email.errors">
+        Entre com um email valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Cartão de credito</mat-label>
-      <input matInput formControlName="creditCard" >
+      <input type="text" matInput formControlName="creditCard">
+      <mat-hint>Cartão de credito obrigatorio*</mat-hint>
+      <mat-error *ngIf="finalizeForm.controls.creditCard.errors">
+        Entre com um cartão de credito valido
+      </mat-error>
     </mat-form-field>
 
     <div class="d-flex justify-content-center align-items-center">
@@ -24,6 +36,5 @@
 </div>
 
 <div mat-dialog-actions class="center">
-  <!-- <button mat-button (click)="onNoClick()"> NÃO </button> -->
   <button mat-raised-button color="warn" (click)="onYesClick()"> Concluir </button>
 </div>

@@ -4,27 +4,47 @@
   <form [formGroup]="userForm">
     <mat-form-field appearance="fill">
       <mat-label>Nome</mat-label>
-      <input matInput formControlName="name" >
+      <input type="text" matInput formControlName="name">
+      <mat-hint>Nome obrigatorio *</mat-hint>
+      <mat-error *ngIf="userForm.controls.name.errors">
+        Entre com um Nome valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Endereço</mat-label>
-      <input matInput formControlName="address" >
+      <input type="text" matInput formControlName="address">
+      <mat-hint>Endereço obrigatorio *</mat-hint>
+      <mat-error *ngIf="userForm.controls.address.errors">
+        Entre com um Endereço valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Telefone</mat-label>
-      <input matInput formControlName="phone" >
+      <input type="text" matInput formControlName="phone">
+      <mat-hint>Telefone obrigatorio *</mat-hint>
+      <mat-error *ngIf="userForm.controls.phone.errors">
+        Entre com um Telefone valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" >
+      <input type="text" matInput formControlName="email">
+      <mat-hint>Email obrigatorio *</mat-hint>
+      <mat-error *ngIf="userForm.controls.email.errors">
+        Entre com um Email valido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Senha</mat-label>
       <input matInput formControlName="password" type="password" >
+      <mat-hint>Senha obrigatorio *</mat-hint>
+      <mat-error *ngIf="userForm.controls.password.errors">
+        Entre com uma Senha valida
+      </mat-error>
     </mat-form-field>
   </form>
 </div>

@@ -71,7 +71,9 @@ Nossos testes serão feitos de forma manual, seguindo as historias a seguir:
 * Usuário deve conseguir visualizar catalogo de produtos e colocar items no carrinho ;
 * Usuário pode colocar items no carrinho deslogado mas só pode finalizar compra quando estiver logado ;
 * Usuário pode excluir items do carrinho .
+
 <br>
+
 * Usuário deve poder logar no sitema com o admin / admin ;
 * Apenas usuarios com permissão admin pode acessar a tela de admin;
 * Admin pode relaizar CRUD de produtos ;

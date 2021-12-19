@@ -20,8 +20,6 @@ export class SpecialComponent implements OnInit {
       this.flag=false;
     else  
       this.flag=true;
-
-    console.log(this.flag);
   }
 
   getColor(newColor: string){

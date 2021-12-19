@@ -24,8 +24,6 @@ export class KartService {
     
     if (!this.productExistInKart(product._id))
       this.kart.push(product);
-
-    console.log(this.kart);   
   }
 
   getKart() {

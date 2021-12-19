@@ -25,9 +25,14 @@ export class ContactComponent implements OnInit {
 
   sendContact(){
     if (!this.contactForm.valid) return;
-
-    console.log( "Olá ",this.contactForm.get('name')?.value);
-
+    console.log( " " );    
+    console.log( "Email enviado de", this.contactForm.get('email')?.value);
+    console.log( " ---------- " );
+    console.log( "Olá ", this.contactForm.get('name')?.value);
+    console.log( "Recebemos a mensagem: ", this.contactForm.get('message')?.value);
+    console.log( "Agradecemos o contato! " );
+    console.log( " ---------- " );
+    
     Swal.fire({
       icon: 'success',
       title: 'Menssagem enviada',

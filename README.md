@@ -19,11 +19,17 @@ A funcionalidade especial do nosso projeto é a interação com uma xicara, onde
 
 * O sistema deve ter 2 tipos de usuarios: Admin e User.
 
-* Administradores são responsavei por registrar/gerenciar administradores, clientes e produtos. A aplicação já vem com uma conta admin default: 
-	* Login: admin;  
-	* Pass: admin .
+* Administradores são responsaveis por registrar/gerenciar administradores, clientes e produtos.
 
 * Clientes são os usuarios que acessam o sistema para comprar produtos.
+
+*  A aplicação já vem com uma conta admin default: 
+	* Login: admin 
+	* Pass: admin 
+
+*  A aplicação já vem com uma conta user default: 
+	* Login: user 
+	* Pass: user 
 
 * O registro de admin deve incluir: name, id, phone, email.
 
@@ -65,7 +71,7 @@ Nossos testes serão feitos de forma manual, seguindo as historias a seguir:
 * Usuário deve conseguir visualizar catalogo de produtos e colocar items no carrinho ;
 * Usuário pode colocar items no carrinho deslogado mas só pode finalizar compra quando estiver logado ;
 * Usuário pode excluir items do carrinho .
-
+<br>
 * Usuário deve poder logar no sitema com o admin / admin ;
 * Apenas usuarios com permissão admin pode acessar a tela de admin;
 * Admin pode relaizar CRUD de produtos ;

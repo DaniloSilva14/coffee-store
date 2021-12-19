@@ -40,7 +40,7 @@ A funcionalidade especial do nosso projeto é a interação com uma xicara, onde
 * Funcionalidade especial: Criar uma funcionalidade que seja específica para a sua aplicação. Não tem de ser algo complicado. Por exemplo, se estiver a vender carros, pode permitir que os utilizadores utilizem um acelerador para ouvir como cada motor de carro ruge para cima e para baixo.
 
 * O sistema deve fornecer requisitos de acessibilidade e proporcionar uma boa usabilidade. 
-* 
+
 * O sistema tem de ser responsivo.  
 
 ## Descrição do projeto:

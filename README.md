@@ -40,56 +40,15 @@ A funcionalidade especial do nosso projeto é a interação com uma xicara, onde
 * Funcionalidade especial: Criar uma funcionalidade que seja específica para a sua aplicação. Não tem de ser algo complicado. Por exemplo, se estiver a vender carros, pode permitir que os utilizadores utilizem um acelerador para ouvir como cada motor de carro ruge para cima e para baixo.
 
 * O sistema deve fornecer requisitos de acessibilidade e proporcionar uma boa usabilidade. 
-* 
+
 * O sistema tem de ser responsivo.  
 
 ## Descrição do projeto:
 
-Diagrama:<br>
+Diagrama:
 
 ![Diagrama do projeto](Diagrama.jpg)
 
- ##### Main Page
-
-The main page is responsive.
-
-#### User Page
-
-In the user page, the user can view their information, log out from their acconut or delete their account.
-
-#### Login Page
-
-In this page the user can login the website's system. After connected the user will be redirected to the main page, if logged with a client account, or to admin page if logged with an admin account.
-
-If the user doesn't have a registered account, he can access the register page from this page.
-
-##### Login as Admin (mocked)
-
-Login: admin 
-Password: admin
-
-##### Login as regular user (mocked)
-
-Login: user
-Password: user  
-
-#### Products Page
-
-This page shows all the products available in our online shop. If an administrator adds a new product or edits an already existing one, the products page will be updated.
-
-This page also presents our group's functionality { we don't have yet }.
-
-  
-
-#### Cart and Payments Page
-
-This page displays all the products selected by the user. It's possible to change the desired quantity of each product, as well as remove them. After the user is done with shopping, they can go to the payment page, where they'll fill in the forms with shipment and payment information. After the payment is concluded, the user is redirected to the main page.
-
-  
-
-#### Admin's Page (we didn't make the prototype)
-
-In this page the admin will can manage the available products or the users that are registered on the plataform. He can turn a normal user (client) into a new administrator. He could also add new products or edit the already existing ones.
 
 ## Comentários sobre o Código:
 

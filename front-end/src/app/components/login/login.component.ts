@@ -31,6 +31,17 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
     this.flag = this.kartService.fromLogin;
+    this.inform()
+  }
+
+  inform(){
+    Swal.fire({
+      icon: 'info',
+      title: 'Contas default',
+      html:
+        '<b> Login: </b> admin <br> <b> Password: </b> admin <br><br>' + 
+        '<b> Login: </b> user <br> <b> Password: </b> user'
+    })
   }
 
   isLogged() {

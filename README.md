@@ -96,7 +96,7 @@ Realizámos múltiplos testes no nosso sistema e dentro do que nos foi proposto,
 * Tivemos problemas de tempo, tendo que pedir para nosso reviwers dar mais tempo para gente cloncluir o projeto.
 * Um dos nossos parceiros teve que desistir da matéria por questões pessoais.
 
-## Comments:
+## Comentarios:
 
 * Gostamos muito da matéria, achamos que conseguimos desenvolver muito bem nossas habilidades;
 * Achamos muito legais os HandsOn.
